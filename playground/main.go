@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"playground/pointer"
+	"playground/slice"
 	"playground/variable"
 )
 
@@ -14,4 +15,8 @@ func main() {
 	fmt.Println("--- ポインターとメモリーアドレス ---")
 
 	pointer.Pointer()
+
+	fmt.Println("--- スライス ---")
+
+	slice.Slice()
 }

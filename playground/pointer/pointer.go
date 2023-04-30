@@ -45,4 +45,22 @@ func Pointer() {
 	**pp1 = 2
 
 	fmt.Printf("6: 書き換えた後のui1の値 %v\n", ui1)
+
+	// シャドーイング
+	str := "A"
+	fmt.Printf("7: strのアドレス %p\n", &str)
+	{
+		str := "B"
+		fmt.Printf("7: ローカルスコープのstrの値 %v\n", str)
+	}
+	fmt.Printf("7: strの値 %v\n", str)
+	fmt.Printf("7: strのアドレス %p\n", &str)
+
+	str2 := "A"
+	{
+		// = でシャドーイングしなくなる
+		str2 = "B"
+		fmt.Printf("8: ローカルスコープのstr2の値 %v\n", str2)
+	}
+	fmt.Printf("8: str2の値 %v\n", str2)
 }
