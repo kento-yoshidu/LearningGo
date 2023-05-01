@@ -61,7 +61,36 @@ func Slice() {
 	// s8にs7をコピー
 	copy(s8, s7)
 
-	fmt.Printf("10: s7 %v, s8 %v", s7, s8)
+	fmt.Printf("10: s7 %v, s8 %v\n", s7, s8)
 
 	// https://qiita.com/k-penguin-sato/items/daad9986d6c42bdcde90
+
+	/* map */
+
+	// キーの型と値の型を指定する
+	var m1 map[string]int
+	m2 := map[string]int{}
+
+	// varを使うとnilと等しい
+	fmt.Printf("11: m1 = nil ? %v\n", m1 == nil)
+	// :=を使うとnilと等しくない
+	fmt.Printf("11: m2 = nil ? %v\n", m2 == nil)
+
+	m2["id"] = 1
+	m2["age"] = 30
+
+	fmt.Printf("12: m2[\"id\"] = %v, m2[\"age\"] = %v\n", m2["id"], m2["age"])
+
+	// deleteで削除
+	delete(m2, "age")
+
+	fmt.Printf("12: age削除後のm2 = %v\n", m2)
+
+	m2["age"] = 30
+	m2["height"] = 180
+
+	// for文で回す
+	for k, v := range m2 {
+		fmt.Printf("13: m2[\"%v\"] = %v\n", k , v)
+	}
 }
