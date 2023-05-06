@@ -3,28 +3,29 @@ package main
 import (
 	"fmt"
 	"playground/my_struct"
-	"playground/my_type"
-	"playground/pointer"
-	"playground/slice"
-	"playground/variable"
 )
 
 func main() {
-	fmt.Println("--- プリミティブ型 ---")
+	/*
+		fmt.Println("--- マップ型 ---")
 
-	my_type.My_type()
+		my_map.My_map()
+			fmt.Println("--- プリミティブ型 ---")
 
-	fmt.Println("--- 変数 ---")
+			my_type.My_type()
 
-	variable.Variable()
+			fmt.Println("--- 変数 ---")
 
-	fmt.Println("--- ポインターとメモリーアドレス ---")
+			variable.Variable()
 
-	pointer.Pointer()
+			fmt.Println("--- ポインターとメモリーアドレス ---")
 
-	fmt.Println("--- スライス ---")
+			pointer.Pointer()
 
-	slice.Slice()
+			fmt.Println("--- スライス ---")
+
+			slice.Slice()
+	*/
 
 	fmt.Println("--- 構造体 ---")
 

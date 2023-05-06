@@ -30,14 +30,23 @@ func My_type() {
 	fmt.Printf("5: runeリテラル %U\n", '\n')
 
 	/* 文字列　*/
+	// 文字列はバイトの列で構成されている
 	// ダブルクオートで囲うと解釈済み文字列リテラル
 	fmt.Printf("6: 文字列リテラル %s\n", "Hello World")
 	// バッククオートで囲うとロー文字列リテラル。改行出来たりする
 	fmt.Printf("6: 文字列リテラル %s\n", `I'm a
 	loser.`)
 
+	var str string = "Hello Wolrd"
+	var b byte = str[6]
+
+	fmt.Printf("7: str[6]の値 %v\n", b)
+
 	/* 真偽値 */
-	fmt.Printf("7: 真偽値 %v\n", true)
+	fmt.Printf("8: 真偽値 %v\n", true)
+
+	fmt.Printf("9: こんにちは のバイト数 %v\n", len("こんにちは"))
+	//=> 9: こんにちは のバイト数 15
 
 	/* 型キャスト */
 }
