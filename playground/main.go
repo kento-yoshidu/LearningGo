@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"playground/my_struct"
+	"playground/my_shadowing"
 )
 
 func main() {
@@ -10,24 +10,28 @@ func main() {
 		fmt.Println("--- マップ型 ---")
 
 		my_map.My_map()
-			fmt.Println("--- プリミティブ型 ---")
+		fmt.Println("--- プリミティブ型 ---")
 
-			my_type.My_type()
+		my_type.My_type()
 
-			fmt.Println("--- 変数 ---")
+		fmt.Println("--- 変数 ---")
 
-			variable.Variable()
+		variable.Variable()
 
-			fmt.Println("--- ポインターとメモリーアドレス ---")
+		fmt.Println("--- ポインターとメモリーアドレス ---")
 
-			pointer.Pointer()
+		pointer.Pointer()
 
-			fmt.Println("--- スライス ---")
+		fmt.Println("--- スライス ---")
 
-			slice.Slice()
+		slice.Slice()
+
+		fmt.Println("--- 構造体 ---")
+
+		my_struct.Struct()
 	*/
 
-	fmt.Println("--- 構造体 ---")
+	fmt.Println("--- シャドーイング ---")
 
-	my_struct.Struct()
+	my_shadowing.My_shadowing()
 }
