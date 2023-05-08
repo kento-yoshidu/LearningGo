@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"math/rand"
 	"time"
+	"unicode/utf8"
 )
 
 func My_shadowing() {
@@ -104,4 +105,53 @@ func My_shadowing() {
 
 	// 影響を受けない
 	fmt.Printf("9: s2 = %v\n", s2)
+
+	/* switch */
+	words := []string{"山", "sun", "微笑み", "人類学者", "モグラの穴", "mountain", "タコの足とイカの足", "antholopologist", "タコの足は8本でイカの足は10本"}
+
+	for _, word := range words {
+		switch size := utf8.RuneCountInString(word); size {
+		case 1, 2, 3, 4:
+			fmt.Printf("10: %sの文字数は%d (1~4文字)\n", word, size)
+		case 5:
+			fmt.Printf("10: %sの文字数は%d (5文字)\n", word, size)
+		case 6, 7, 8:
+			fmt.Printf("10: %sの文字数は%d (6,7,8文字)\n", word, size)
+		default:
+			fmt.Printf("10: %sの文字数は%d (default)\n", word, size)
+		}
+	}
+
+	// ブランクswitch
+	words = []string{"hi", "salutations", "hello"}
+
+	for _, word := range words {
+		switch wordLen := len(word); {
+		case wordLen < 5:
+			fmt.Printf("11: %sは短い単語です (%d文字)\n", word, wordLen)
+		case wordLen > 10:
+			fmt.Printf("11: %sは長い単語です (%d文字)\n", word, wordLen)
+		default:
+			fmt.Printf("11: %sはそこそこの単語です (%d文字)\n", word, wordLen)
+		}
+	}
+
+	// break
+
+loop:
+	for i := 0; i < 10; i++ {
+		switch {
+		case i%2 == 0:
+			fmt.Println("12: 偶数です")
+		case i%3 == 0:
+			fmt.Println("12: 3で割り切れる")
+		case i%7 == 0:
+			fmt.Println("12: 7で割り切れるならループ終了したい")
+			// breakのみだと、switchから抜け出す
+			// forから抜け出すにはラベルを使う
+			break loop
+		default:
+			fmt.Println("12: 普通の数です")
+		}
+	}
 }
