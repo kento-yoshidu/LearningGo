@@ -76,5 +76,5 @@ func My_function() {
 		os.Exit(1)
 	}
 
-	fmt.Printf("4: x = %v, y = %v, z = %v", x, y, z)
+	fmt.Printf("4: x = %v, y = %v, z = %v\n", x, y, z)
 }
