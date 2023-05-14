@@ -36,4 +36,6 @@ func main() {
 	*/
 	fmt.Println("--- 関数 ---")
 	my_function.My_function()
+	my_function.My_function_2()
+	my_function.My_function_3()
 }
