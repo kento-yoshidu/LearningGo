@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"playground/my_closure"
 	"playground/my_function"
 )
 
@@ -38,4 +39,8 @@ func main() {
 	my_function.My_function()
 	my_function.My_function_2()
 	my_function.My_function_3()
+
+	fmt.Println("--- クロージャー ---")
+
+	my_closure.MyClosure()
 }
