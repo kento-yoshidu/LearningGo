@@ -2,6 +2,16 @@ package my_pointer
 
 import "fmt"
 
+func failedUpdate(g *int) {
+	x := 10
+	g = &x
+}
+
+func update100(px *int) {
+	// デリファレンスで100に書き換える
+	*px = 100
+}
+
 func MyPointer() {
 	// メモリーを4バイト確保
 	var x = 10
@@ -25,4 +35,22 @@ func MyPointer() {
 	//=> 1: それぞれが指すアドレスに格納されている値 x = 10, y = true
 	fmt.Printf("1: &を付けると、ポインター自身のアドレスを出力する x = %v, y = %v\n", &pointerX, &pointerY)
 	//=> 1: &を付けると、ポインター自身のアドレスを出力する x = 0xc000006030, y = 0xc000006038
+
+	// nilポインター
+	var f *int
+
+	failedUpdate(f)
+
+	// nilポインターは更新できない
+	fmt.Printf("2: f = %v\n", f)
+	//=> 2: f = <nil>
+
+	x2 := 10
+
+	update100(&x2)
+
+	fmt.Printf("3: update100に渡した後のx2 = %v\n", x2)
+
+	// マップは構造体へのポインターとして実装されている
+	// → 関数にマップを渡すということは、ポインターをコピーすることと同じ
 }
