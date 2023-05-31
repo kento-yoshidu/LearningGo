@@ -3,16 +3,21 @@ package main
 import (
 	"fmt"
 	"playground/my_pointer"
+	"playground/my_type"
 )
 
 func main() {
 	/*
-			fmt.Println("--- マップ型 ---")
+		fmt.Println("--- マップ型 ---")
 
-			my_map.My_map()
-			fmt.Println("--- プリミティブ型 ---")
+		my_map.My_map()
 
-			my_type.My_type()
+		fmt.Println("--- プリミティブ型 ---")
+	*/
+
+	my_type.My_type_2()
+
+	/*
 
 			fmt.Println("--- 変数 ---")
 
@@ -33,6 +38,7 @@ func main() {
 			fmt.Println("--- シャドーイング ---")
 
 			my_shadowing.My_shadowing()
+
 		fmt.Println("--- 関数 ---")
 		my_function.My_function()
 		my_function.My_function_2()

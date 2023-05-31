@@ -12,6 +12,25 @@ func update100(px *int) {
 	*px = 100
 }
 
+// 同じ参照先を持ったポインターがコピーされている
+func show_address(s *string) {
+	fmt.Printf("show_address: sの値 = %v\n", s)
+	//=> show_address: sの値 = 0xc00005a250
+	fmt.Printf("show_address: sのアドレス = %v\n", &s)
+	//=> show_address: sのアドレス = 0xc000006060
+}
+
+func change_address(s *string) {
+	temp := "hello"
+	s = &temp
+}
+
+func change_address_2(s *string) {
+	temp := "hello"
+	// デリファレンスで参照先を書き換える
+	*s = temp
+}
+
 func MyPointer() {
 	// メモリーを4バイト確保
 	var x = 10
@@ -53,4 +72,67 @@ func MyPointer() {
 
 	// マップは構造体へのポインターとして実装されている
 	// → 関数にマップを渡すということは、ポインターをコピーすることと同じ
+
+	var x3 = 100
+	fmt.Printf("4: x3のアドレス = %v\n", &x3)
+	//=> 4: x3のアドレス = 0xc00001a0d8
+
+	// ポインター変数として定義
+	var px3 *int
+	fmt.Printf("4: px3の値 = %v\n", px3)
+	//=> 4: px3の値 = <nil>
+	fmt.Printf("4: px3のアドレス = %v\n", &px3)
+	//=> 4: px3のアドレス = 0xc000006040
+
+	px3 = &x3
+	fmt.Printf("5: px3の値 = %v\n", px3)
+	//=> 5: px3の値 = 0xc00001a0d8
+	fmt.Printf("5: px3のデリファレンス = %v\n", *px3)
+	//=> 5: px3のデリファレンス = 100
+
+	// ダブルポインター
+
+	var x4 = 100
+	fmt.Printf("6: x4のアドレス = %v\n", &x4)
+	//=> 6: x4のアドレス = 0xc00001a0e0
+
+	px4 := &x4
+	fmt.Printf("6: pxの値 = %v\n", px4)
+	//=> 6: pxの値 = 0xc00001a0e0
+	fmt.Printf("6: px4のアドレス = %v\n", &px4)
+	//=> 6: px4のアドレス = 0xc000006048
+
+	ppx4 := &px4
+	fmt.Printf("6: ppx4の値 = %v\n", ppx4)
+	//=> 6: ppx4の値 = 0xc000006048
+	fmt.Printf("6: ppx4のアドレス = %v\n", &ppx4)
+	//=> 6: ppx4のアドレス = 0xc000006050
+
+	fmt.Printf("6: ppx4のデリファレンス = %v\n", *ppx4)
+	//=> 6: ppx4のデリファレンス = 0xc00001a0e0
+	fmt.Printf("6: ppx4の2つデリファレンス = %v\n", **ppx4)
+	//=> 6: ppx4の2つデリファレンス = 100
+
+	// 値渡し
+	// Goには値渡ししかない
+
+	// 参照私っぽいのは参照の値渡し
+
+	name := "kento"
+	fmt.Printf("7: nameのアドレス = %v\n", &name)
+	//=> 7: nameのアドレス = 0xc00005a250
+
+	pname := &name
+	fmt.Printf("7: pnameのアドレス = %v\n", &pname)
+	//=> 7: pnameのアドレス = 0xc000006058
+
+	show_address(pname)
+
+	change_address(pname)
+	fmt.Printf("8: nameの値 = %v\n", *pname)
+	//=> 8: nameの値 = kento
+
+	change_address_2(pname)
+	fmt.Printf("8: nameの値 = %v\n", *pname)
+	//=> 8: nameの値 = hello
 }
