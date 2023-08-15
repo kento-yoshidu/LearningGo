@@ -3,7 +3,7 @@ module rest-api
 go 1.18
 
 require (
-	github.com/golang-jwt/jwt/v4 v4.5.0
+	github.com/golang-jwt/jwt/v4 v4.1.0
 	github.com/joho/godotenv v1.5.1
 	github.com/labstack/echo/v4 v4.11.1
 	golang.org/x/crypto v0.11.0
